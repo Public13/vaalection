@@ -1,4 +1,4 @@
-package ru.protei.spring;
+package ru.protei;
 
 import org.junit.Assert;
 import org.junit.Test;
