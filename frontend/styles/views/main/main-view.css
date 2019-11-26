@@ -17,3 +17,7 @@
 #main-view #wrapper {
     flex-grow:1;
 }
+
+#developer-grid {
+    flex-grow:1;
+}

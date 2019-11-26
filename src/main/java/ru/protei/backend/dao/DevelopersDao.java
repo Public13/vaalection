@@ -10,7 +10,6 @@ import java.util.List;
 public class DevelopersDao {
 
     private List<Developer> developers;
-
     {
         developers = new ArrayList<>();
         developers.add(new Developer(1,"Надя", "Leeming", "rleeming0@bbc.co.uk", "Food Chemist"));
@@ -45,12 +44,12 @@ public class DevelopersDao {
         return developers.stream().filter(e -> e.getId()==id).findFirst().orElse(null);
     }
 
-    public void update(Developer employee) {
-        Developer findDeveloper = findById(employee.getId());
+    public void update(Developer developer) {
+        Developer findDeveloper = findById(developer.getId());
         if(findDeveloper!=null) {
-            findDeveloper.setEmail(employee.getEmail());
-            findDeveloper.setFirstname(employee.getFirstname());
-            findDeveloper.setLastname(employee.getLastname());
+            findDeveloper.setEmail(developer.getEmail());
+            findDeveloper.setFirstname(developer.getFirstname());
+            findDeveloper.setLastname(developer.getLastname());
         }
     }
 }

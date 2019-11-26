@@ -3,6 +3,7 @@ package ru.protei.backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.protei.backend.dao.DevelopersDao;
+import ru.protei.model.Department;
 import ru.protei.model.Developer;
 
 import java.util.List;
@@ -22,5 +23,9 @@ public class DevelopersService {
 
     public List<Developer> getDevelopers() {
         return developersDao.getAll();
+    }
+
+    public Developer getDeveloperById(Integer id) {
+        return developersDao.findById(id);
     }
 }
