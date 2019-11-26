@@ -26,8 +26,8 @@ import ru.protei.model.Developer;
 @Route(value = "developerEdit", layout = MainLayout.class)
 @RouteAlias(value = "edit", layout = MainLayout.class)
 public class DevelopersEditView extends Div implements HasUrlParameter<Integer> {
-    private transient DevelopersService developersService;
 
+    private transient DevelopersService developersService;
     private Binder<Developer> binder;
     private transient Developer developerToEdit;
 
@@ -97,7 +97,6 @@ public class DevelopersEditView extends Div implements HasUrlParameter<Integer> 
         formLayout.addFormItem(lastName, "Фамилия");
         formLayout.addFormItem(email, "Email");
         formLayout.addFormItem(password, "Пароль");
-        formLayout.getChildren().forEach(component -> component.getElement().getClassList().add("full-width"));
 
         HorizontalLayout buttonLayout = createButtonLayout();
 

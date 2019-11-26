@@ -13,15 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ru.protei.backend.service.DepartmentsService;
 import ru.protei.model.Department;
 
-@Route(value = "departments", layout = MainLayout.class)
 @PageTitle("Vaadin App::Departments")
 @CssImport("styles/views/main/main-view.css")
+@Route(value = "departments", layout = MainLayout.class)
 public class DepartmentsView extends Div implements AfterNavigationObserver {
 
     @Autowired
     public DepartmentsView(DepartmentsService departmentsService) {
-
-        System.out.println("====== DEPARTMENTS constructor");
 
         Grid<Department> departmentsGrid = new Grid<>(Department.class);
         departmentsGrid.setId("departments-grid");
