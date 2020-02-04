@@ -15,7 +15,7 @@ import com.vaadin.flow.router.RouterLink;
 
 import java.util.*;
 
-@CssImport("styles/views/main/main-layout.css")
+@CssImport("./styles/views/main/main-layout.css")
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
     private Div content;
@@ -29,28 +29,26 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
         Tabs tabs = new Tabs();
         Tab developersTab = new Tab(new RouterLink("Разработчики" , DevelopersView.class));
         Tab departmentsTab = new Tab(new RouterLink("Отделы" , DepartmentsView.class));
+        Tab templatesTab = new Tab(new RouterLink("Шаблоны" , TemplatesView.class));
+
+        RouterLink wildcardLink = new RouterLink("Profile wildcard", ProfileView.class, "mkd/205/pbx/1/account/3000/edit");
+        Tab wildcardTab = new Tab(wildcardLink);
 
         Map<String, List<String>> queryMap = new HashMap<>();
-        queryMap.put("id", Collections.singletonList("100"));
-        queryMap.put("name", Collections.singletonList("Boris"));
-        queryMap.put("age", Collections.singletonList("45"));
-        queryMap.put("sex", Collections.singletonList(""));
-        queryMap.put("department", Arrays.asList("7","3"));
+        queryMap.put("mkd", Collections.singletonList("205"));
+        queryMap.put("pbx", Collections.singletonList("1"));
+        queryMap.put("profile", Collections.singletonList("3000"));
 
-        RouterLink queryLink = new RouterLink("Вьюха с Query", QueryView.class);
+        RouterLink queryLink = new RouterLink("Profile query", ProfileQueryView.class);
         queryLink.setQueryParameters(new QueryParameters(queryMap));
         Tab queryTab = new Tab(queryLink);
 
-        RouterLink wildcardLink = new RouterLink("Вьюха с параметрами и Query", QueryView.class, "mkd/1/pbx//account/3000");
-        wildcardLink.setQueryParameters(new QueryParameters(queryMap));
-        Tab wildcardTab = new Tab(wildcardLink);
-
-        tabs.add(developersTab, departmentsTab, queryTab, wildcardTab);
+        tabs.add(developersTab, departmentsTab, templatesTab, wildcardTab, queryTab);
 
         content = new Div();
         content.setId("main-content");
         content.setSizeFull();
-        add(tabs, content, new H4("Подвал.. смотри как умею"));
+        add(tabs, content, new H4("Подвал.. http://protei.ru"));
         setSizeFull();
     }
 

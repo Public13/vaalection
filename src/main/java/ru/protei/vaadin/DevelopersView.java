@@ -15,7 +15,7 @@ import ru.protei.model.Developer;
 
 @PWA(name = "Project Base for Vaadin Flow with Spring", shortName = "Vaalection")
 @PageTitle("Vaadin App")
-@CssImport("styles/views/main/main-view.css")
+@CssImport("./styles/views/main/main-view.css")
 @Route(value = "", layout = MainLayout.class)
 public class DevelopersView extends Div {
 

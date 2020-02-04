@@ -14,7 +14,7 @@ import ru.protei.backend.service.DepartmentsService;
 import ru.protei.model.Department;
 
 @PageTitle("Vaadin App::Departments")
-@CssImport("styles/views/main/main-view.css")
+@CssImport("./styles/views/main/main-view.css")
 @Route(value = "departments", layout = MainLayout.class)
 public class DepartmentsView extends Div implements AfterNavigationObserver {
 
