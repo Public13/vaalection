@@ -1,9 +1,6 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-input/paper-input.js';
-// import '../js/jquery-3.4.1.min.js';
-// import '../js/datepicker.js';
-// import '../js/datepicker.en.js';
-// import '../js/test.js';
+import '@fooloomanzoo/datetime-picker/datetime-picker';
 
 class MkdService extends PolymerElement {
 
@@ -12,14 +9,9 @@ class MkdService extends PolymerElement {
             <div>
                 <paper-input id="inputId" value="{{userInput}}"></paper-input>
                 <button id="helloButton" on-click="sayHello">Say hello</button>
-                <input type='text' class="datepicker-here" id="datepicker-here" data-position="right top" />
                 <div id="greeting">[[greeting]]</div>
-            </div>
-            <script> 
-            $('#datepicker-here').datepicker();
-            alert('bbbb');
-            scrim();
-            </script>`;
+                <datetime-picker></datetime-picker>
+            </div>`;
     }
 
     static get is() {
