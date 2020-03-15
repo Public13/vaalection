@@ -10,7 +10,9 @@ import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 @Tag("mkd-service")
 @NpmPackage(value = "@polymer/paper-input", version = "3.0.2")
 @JsModule("./src/mkd-service.js")
+@CssImport(value = "./styles/components/mkd-service/bootstrap.css", id = "bootstrap")
 @CssImport(value = "./styles/components/mkd-service/mkd-service.css", id = "mkd-service-style")
+@CssImport(value = "./styles/components/mkd-service/julia.css", id = "julia")
 public class MkdService extends PolymerTemplate<MkdServiceModel> {
     private static final String EMPTY_NAME_GREETING = "Please enter your name";
 
