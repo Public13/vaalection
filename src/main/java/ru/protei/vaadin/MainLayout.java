@@ -29,7 +29,7 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
         Tabs tabs = new Tabs();
         Tab developersTab = new Tab(new RouterLink("Разработчики" , DevelopersView.class));
         Tab departmentsTab = new Tab(new RouterLink("Отделы" , DepartmentsView.class));
-        Tab templatesTab = new Tab(new RouterLink("Шаблоны" , TemplatesView.class));
+        Tab templatesTab = new Tab(new RouterLink("Шаблоны" , TemplateView.class));
 
         RouterLink wildcardLink = new RouterLink("Profile wildcard", ProfileView.class, "mkd/205/pbx/1/account/3000/edit");
         Tab wildcardTab = new Tab(wildcardLink);

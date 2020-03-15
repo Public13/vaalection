@@ -1,3 +1,0 @@
-function scrim() {
-    alert('aaaa');
-}
