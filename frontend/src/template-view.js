@@ -12,7 +12,9 @@ class TemplateView extends PolymerElement {
             </style>
             <div>
                 <span><p>Hello, it's a simple template</p></span>
-                <mkd-service id="service1"></mkd-service>
+                <!-- Жесть, надо читать полимер чтобы такое найти. Имя проперти видоизменяется до атрибута с тире-->
+                <mkd-service id="service1" service-name="FWD Uncond"></mkd-service>
+                <mkd-service id="service2" service-name="FWD Busy"></mkd-service>
             </div>`;
     }
 

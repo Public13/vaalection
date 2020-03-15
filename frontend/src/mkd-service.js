@@ -4,6 +4,19 @@ import '@fooloomanzoo/datetime-picker/datetime-picker';
 
 class MkdService extends PolymerElement {
 
+    static get properties() {
+        return {
+            serviceName: {
+                type: String
+            }
+        }
+    }
+
+    constructor() {
+        super();
+        this.serviceName = 'Hello!';
+    }
+
     static get template() {
         return html`
             <style include="mkd-service-style">
@@ -12,6 +25,7 @@ class MkdService extends PolymerElement {
                 }
             </style>
             <div>
+                <p>service [[serviceName]]</p>
                 <paper-input id="inputId" value="{{userInput}}"></paper-input>
                 <button id="helloButton" class="normal-color" on-click="sayHello">Say hello</button>
                 <div id="greeting">[[greeting]]</div>
