@@ -14,7 +14,6 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.validator.EmailValidator;
 import com.vaadin.flow.data.validator.RegexpValidator;
-import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
@@ -39,8 +38,7 @@ public class DevelopersEditView extends Div implements HasUrlParameter<Integer> 
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
 
-    @Autowired
-    public DevelopersEditView(DevelopersService developersService) {
+    public DevelopersEditView(@Autowired DevelopersService developersService) {
         someInit(developersService);
 
         Label emailStatus = new Label();
@@ -123,7 +121,13 @@ public class DevelopersEditView extends Div implements HasUrlParameter<Integer> 
     private void someInit(DevelopersService developersService) {
         this.developersService = developersService;
         firstName.getElement().getClassList().add("full-width");
-        firstName.addValueChangeListener( e -> binder.validate());
+        firstName.addValueChangeListener(e -> {binder.validate();
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        });
         lastName.getElement().getClassList().add("full-width");
         email.getElement().getClassList().add("full-width");
         password.getElement().getClassList().add("full-width");

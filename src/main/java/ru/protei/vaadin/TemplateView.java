@@ -18,7 +18,10 @@ import ru.protei.vaadin.mkdservice.MkdService;
 public class TemplateView extends PolymerTemplate<TemplateView.TemplateViewModel> {
 
     @Id("service1")
-    private MkdService service;
+    private MkdService service1;
+
+    @Id("service2")
+    private MkdService service2;
 
     public TemplateView() {
         setId("template-view");

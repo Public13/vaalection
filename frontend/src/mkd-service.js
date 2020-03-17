@@ -14,52 +14,81 @@ class MkdService extends PolymerElement {
 
     constructor() {
         super();
-        this.serviceName = 'Hello!';
+        this.serviceName = 'Unknown';
     }
 
     static get template() {
         return html`
-            <style include="bootstrap mkd-service-style julia">
-                .my-border-style {
-                  border: 2px solid grey;
+            <style include="bootstrap julia">
+                .card-width {
+                    width: 400px;
+                }
+                .setup-icon {
+                    width: 15px;
+                }
+                .content-icon {
+                    width: 45px;
+                    height: 45px;
                 }
             </style>
             <div>
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-                    <figure class="effect-julia">
+                <div class="card-width">
+                    <figure class="effect-julia" on-click="openModal">
                         <div class="small-box bg-navy">
                             <div class="small-box-header">
                                 [[serviceName]]
-                                <i class="fa fa-phone-square header-icon"></i>                            
+                                <iron-icon icon="vaadin:phone" class="header-icon"></iron-icon>                            
                             </div>
             
                             <div class="inner">
                                 <div class="">
-                                    [[greeting]]
+                                    [[cardCaption]]
                                 </div>
                             </div>
-                            <div class="small-icon">
-                                <i class="fa fa-group"></i>
+                            <div class="small-icon">                            
+                                <iron-icon icon="vaadin:group" class="content-icon"></iron-icon>
                             </div>
                         </div>        
-                        <figcaption onclick="openModal">
+                        <figcaption>
                             <div>
                                 <p>
-                                    Setup <i class="fa fa-arrow-circle-right"></i>
+                                    Настроить <iron-icon icon="vaadin:arrow-circle-right" class="setup-icon"></iron-icon>
                                 </p>
                             </div>
                         </figcaption>
                     </figure>
                 </div>      
-<!--                <paper-input id="inputId" value="{{userInput}}"></paper-input>-->
-<!--                <button id="helloButton" class="normal-color" on-click="sayHello">Say hello</button>-->
-<!--                <div id="greeting">[[greeting]]</div>-->
-<!--                <datetime-picker></datetime-picker>-->
-            </div>`;
+            </div>
+            
+            <vaadin-dialog id="dialog" aria-label="polymer templates">
+              <template>
+                <style>
+                    vaadin-button {
+                        float: right;
+                    }
+                </style>
+                <div>
+                    <paper-input id="inputId" placeholder="Введите номер" value="{{number}}"></paper-input>
+                    <datetime-picker datetime="{{date}}"></datetime-picker>
+                    <div>
+                        <vaadin-button id="applyButton" on-click="applyChanges">Применить</vaadin-button>
+                    </div>
+                </div>
+              </template>
+            </vaadin-dialog>`;
     }
 
     static get is() {
         return 'mkd-service';
+    }
+
+    openModal() {
+        console.log("open dialog");
+        this.$.dialog.opened = true;
+    }
+
+    afterServerUpdate() {
+        this.setAttribute("id", this.serviceName);
     }
 }
 
