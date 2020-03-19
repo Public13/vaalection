@@ -7,19 +7,15 @@ class MkdService extends PolymerElement {
     static get properties() {
         return {
             serviceName: {
-                type: String
+                type: String,
+                value: "Unknown"
             }
         }
     }
 
-    constructor() {
-        super();
-        this.serviceName = 'Unknown';
-    }
-
     static get template() {
         return html`
-            <style include="bootstrap julia">
+            <style include="bootstrap julia font-awesome">
                 .card-width {
                     width: 400px;
                 }
@@ -37,7 +33,7 @@ class MkdService extends PolymerElement {
                         <div class="small-box bg-navy">
                             <div class="small-box-header">
                                 [[serviceName]]
-                                <iron-icon icon="vaadin:phone" class="header-icon"></iron-icon>                            
+                                <i class="fa fa-phone header-icon"></i>                            
                             </div>
             
                             <div class="inner">
@@ -78,10 +74,6 @@ class MkdService extends PolymerElement {
             </vaadin-dialog>`;
     }
 
-    static get is() {
-        return 'mkd-service';
-    }
-
     openModal() {
         console.log("open dialog");
         this.$.dialog.opened = true;
@@ -89,6 +81,10 @@ class MkdService extends PolymerElement {
 
     afterServerUpdate() {
         this.setAttribute("id", this.serviceName);
+    }
+
+    static get is() {
+        return 'mkd-service';
     }
 }
 

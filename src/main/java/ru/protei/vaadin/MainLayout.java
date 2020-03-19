@@ -12,9 +12,14 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
+import com.vaadin.flow.server.PWA;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+@PWA(name = "Project Base for Vaadin Flow with Spring", shortName = "Vaalection")
 @CssImport("./styles/views/main/main-layout.css")
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
@@ -27,9 +32,9 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
         add(header);
 
         Tabs tabs = new Tabs();
-        Tab developersTab = new Tab(new RouterLink("Разработчики" , DevelopersView.class));
-        Tab departmentsTab = new Tab(new RouterLink("Отделы" , DepartmentsView.class));
-        Tab templatesTab = new Tab(new RouterLink("Шаблоны" , TemplateView.class));
+        Tab developersTab = new Tab(new RouterLink("Разработчики", DevelopersView.class));
+        Tab departmentsTab = new Tab(new RouterLink("Отделы", DepartmentsView.class));
+        Tab templatesTab = new Tab(new RouterLink("Шаблоны", TemplateView.class));
 
         RouterLink wildcardLink = new RouterLink("Profile wildcard", ProfileView.class, "mkd/205/pbx/1/account/3000/edit");
         Tab wildcardTab = new Tab(wildcardLink);
@@ -43,7 +48,9 @@ public class MainLayout extends VerticalLayout implements RouterLayout {
         queryLink.setQueryParameters(new QueryParameters(queryMap));
         Tab queryTab = new Tab(queryLink);
 
-        tabs.add(developersTab, departmentsTab, templatesTab, wildcardTab, queryTab);
+        Tab containerTab = new Tab(new RouterLink("Вьюха во вьюхе", ContainsDevelopersView.class));
+
+        tabs.add(developersTab, departmentsTab, templatesTab, wildcardTab, queryTab, containerTab);
 
         content = new Div();
         content.setId("main-content");

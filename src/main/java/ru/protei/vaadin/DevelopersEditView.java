@@ -121,12 +121,11 @@ public class DevelopersEditView extends Div implements HasUrlParameter<Integer> 
     private void someInit(DevelopersService developersService) {
         this.developersService = developersService;
         firstName.getElement().getClassList().add("full-width");
-        firstName.addValueChangeListener(e -> {binder.validate();
+        firstName.addValueChangeListener(e -> {
+            binder.validate();
             try {
                 Thread.sleep(10000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            } catch (Exception ignore) { }
         });
         lastName.getElement().getClassList().add("full-width");
         email.getElement().getClassList().add("full-width");
