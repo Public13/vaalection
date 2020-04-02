@@ -6,6 +6,7 @@
     "@polymer/polymer": "3.2.0",
     "@vaadin/flow-deps": "./target/frontend",
     "@webcomponents/webcomponentsjs": "^2.2.10",
+    "multiselect-combo-box": "^2.4.0",
     "star-rating": "0.0.1"
   },
   "devDependencies": {
@@ -18,5 +19,5 @@
     "webpack-merge": "4.2.2",
     "raw-loader": "3.0.0"
   },
-  "vaadinAppPackageHash": "9b4185bd2802cc937a2d84f8f30b525dec1432ec450bcc0c72d26c3a9affdae4"
+  "vaadinAppPackageHash": "f136b01c37befc856ea91127eeecaa538e8f7b46bea05bb30c88fec14997d7e3"
 }

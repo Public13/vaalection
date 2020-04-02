@@ -1,6 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import './mkd-service.js';
-import './colored-div.js'
+import './colored-div.js';
 
 class TemplateView extends PolymerElement {
 
